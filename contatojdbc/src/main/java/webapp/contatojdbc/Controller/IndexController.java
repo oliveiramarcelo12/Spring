@@ -1,4 +1,4 @@
-package webapp.hello_world.Controller;
+package webapp.contatojdbc.Controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -6,31 +6,28 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-/** @author Rolfi Luz - Senai * */
+import webapp.contatojdbc.Connection.EmailDAO;
+
 @Controller
-public class indexController {
+public class IndexController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView abrirIndex() {
         ModelAndView mv = new ModelAndView("index");
-
+        EmailDAO obj = new EmailDAO();
+        obj.criaTabela();
         String mensagem = "Olá, seja bem-vinda(o)!";
         mv.addObject("msg", mensagem);
+        obj.criaTabela();
 
         return mv;
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    public ModelAndView buscarIndex(@RequestParam("nome") String nome,
-                                    @RequestParam("email") String email,
-                                    @RequestParam("telefone") String telefone) {
+    public ModelAndView buscarIndex(@RequestParam("email") String email) {
         ModelAndView mv = new ModelAndView("index");
 
-        String mensagem = "Resultado da Busca!";
-        mv.addObject("msg", mensagem);
-        mv.addObject("nome", nome);
-        mv.addObject("email", email);
-        mv.addObject("telefone", telefone);
+        new EmailDAO().cadastrar(email);
 
         return mv;
     }
