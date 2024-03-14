@@ -44,25 +44,6 @@
         </form>
     </div>
 
-    <script>
-        document.getElementById("newsletterForm").addEventListener("submit", function(event) {
-            var emailInput = document.getElementById("email");
-            var emailError = document.getElementById("emailError");
-            var email = emailInput.value.trim();
-
-            if (!isValidEmail(email)) {
-                emailError.textContent = "Por favor, insira um endereço de email válido.";
-                emailInput.focus();
-                event.preventDefault();
-            } else {
-                emailError.textContent = "";
-            }
-        });
-
-        function isValidEmail(email) {
-            var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return regex.test(email);
-        }
-    </script>
+    
 </body>
 </html>
