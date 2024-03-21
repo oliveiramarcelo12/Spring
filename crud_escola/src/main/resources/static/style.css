@@ -29,6 +29,7 @@ header h1 {
 
 nav {
     float: none; /* Remover flutuação */
+    display: flex;
 }
 
 nav ul {
