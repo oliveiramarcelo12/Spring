@@ -10,7 +10,7 @@ body {
 }
 
 .container {
-    width: 80%;
+    width: 90%; /* Ajuste de largura do container */
     margin: 0 auto;
 }
 
@@ -19,15 +19,16 @@ header {
     color: #fff;
     padding: 20px 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center; /* Centralizar o texto */
 }
 
 header h1 {
-    float: left;
-    font-size: 24px;
+    font-size: 32px; /* Ajuste de tamanho do texto */
+    margin-bottom: 10px; /* Espaço entre o texto e a barra de navegação */
 }
 
 nav {
-    float: right;
+    float: none; /* Remover flutuação */
 }
 
 nav ul {
