@@ -30,6 +30,7 @@ header h1 {
 nav {
     float: none; /* Remover flutuação */
     display: flex;
+    justify-content: space-between; /* Distribuir o espaço entre os elementos */
 }
 
 nav ul {
