@@ -7,30 +7,27 @@
 
 body {
     font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
 }
 
 .container {
-    width: 90%; /* Ajuste de largura do container */
+    width: 80%;
     margin: 0 auto;
 }
 
 header {
-    background-color: #007bff; /* Cor azul */
+    background-color: #007bff;
     color: #fff;
     padding: 20px 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    text-align: center; /* Centralizar o texto */
-}
-
-header h1 {
-    font-size: 32px; /* Ajuste de tamanho do texto */
-    margin-bottom: 10px; /* Espaço entre o texto e a barra de navegação */
-}
-
-nav {
-    float: none; /* Remover flutuação */
     display: flex;
-    justify-content: space-between; /* Distribuir o espaço entre os elementos */
+    align-items: center;
+}
+
+.logo {
+    width: 60px;
+    height: auto;
+    margin-right: 10px;
 }
 
 nav ul {
@@ -50,10 +47,81 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #ffc107; /* Cor amarela */
+    color: black;
 }
 
-/* Ícones */
 nav ul li a i {
     margin-right: 5px;
+}
+
+/* Estilos para a página de login */
+.login-container {
+    width: 100%;
+    max-width: 400px; /* Reduz a largura máxima do contêiner de login */
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button,
+.btn-cadastrar {
+    width: 100%;
+    padding: 8px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    display: block; /* Garante que os botões ocupem a largura total do contêiner */
+    margin-top: 10px; /* Adiciona margem superior entre os botões */
+}
+
+button:hover,
+.btn-cadastrar:hover {
+    background-color: #0056b3;
+}
+
+.btn-cadastrar {
+    background-color: #28a745; /* Cor verde para o botão cadastrar */
+}
+
+.btn-cadastrar:hover {
+    background-color: #218838; /* Cor verde escura quando hover */
+}
+
+
+.button-container {
+    display: flex;
+    margin-top: 10px; /* Adiciona margem superior ao contêiner de botões */
+}
+
+.button-container button,
+.button-container .btn-cadastrar {
+    flex: 1;
+    margin-right: 10px;
 }
