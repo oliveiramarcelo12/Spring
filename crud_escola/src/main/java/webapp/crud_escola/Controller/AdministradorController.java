@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class AdministradorController  {
     @Autowired
     private AdministradorRepository ar ;
+    @Autowired
     private VerificaCadastroAdmRepository vcar;
 
     @PostMapping("/cad-adm")

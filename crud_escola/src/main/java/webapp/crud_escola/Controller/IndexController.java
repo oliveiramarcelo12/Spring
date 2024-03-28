@@ -33,4 +33,27 @@ public class IndexController {
         ModelAndView mv = new ModelAndView("adm/cad-adm");
         return mv;
     }
+    @GetMapping("/login-prof")
+    public ModelAndView abrirLoginProf() {
+        ModelAndView mv = new ModelAndView("prof/login-prof");
+        return mv;
+    }
+
+    @GetMapping("/cad-prof") // endereço da pagina no site
+    public ModelAndView abrirCadProf() {
+        ModelAndView mv = new ModelAndView("prof/cad-prof");
+        return mv;
+    }
+    @GetMapping("/login-aluno")
+    public ModelAndView abrirLoginAluno() {
+        ModelAndView mv = new ModelAndView("aluno/login-aluno");
+        return mv;
+    }
+
+    @GetMapping("/cad-aluno") // endereço da pagina no site
+    public ModelAndView abrirCadAluno() {
+        ModelAndView mv = new ModelAndView("aluno/cad-aluno");
+        return mv;
+    }
 }
+
