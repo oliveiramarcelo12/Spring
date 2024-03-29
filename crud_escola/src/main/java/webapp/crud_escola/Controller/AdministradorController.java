@@ -7,6 +7,7 @@ import webapp.crud_escola.Model.Administrador;
 import webapp.crud_escola.Repository.AdministradorRepository;
 import webapp.crud_escola.Repository.VerificaCadastroAdmRepository;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class AdministradorController  {
+    boolean acessoInternoAdm = false;
     @Autowired
     private AdministradorRepository ar ;
     @Autowired
@@ -38,29 +40,43 @@ public class AdministradorController  {
       
         return mv;
     }
-      @PostMapping("acesso-adm")
+    @PostMapping("acesso-adm")
     public ModelAndView acessoAdmLogin(@RequestParam String cpf,
-                                       @RequestParam String senha) {
-        ModelAndView mv =  new ModelAndView("adm/login-adm");//página interna de acesso
-  
-        boolean acessoCPF = cpf.equals(ar.findByCpf(cpf).getCpf());
-        boolean acessoSenha = cpf.equals(ar.findByCpf(cpf).getSenha());
-        if (acessoSenha && acessoCPF) {
-            String mensagem = "Login Realizado com sucesso";
+                                        @RequestParam String senha) {
+        ModelAndView mv = new ModelAndView("adm/interna-adm");
+    
+        Administrador administrador = ar.findByCpf(cpf);
+    
+        if (administrador != null && administrador.getSenha().equals(senha)) {
+            String mensagem = "Login realizado com sucesso";
+            acessoInternoAdm = true;
             System.out.println(mensagem);
             mv.addObject("msg", mensagem);
-           
-
-            
-        }else{
-            String mensagem = "Login não efetuado";
+        } else {
+            String mensagem = "CPF ou senha incorretos. Login não efetuado";
             System.out.println(mensagem);
             mv.addObject("msg", mensagem);
-
         }
-        
+    
         return mv;
     }
     
+
+    @GetMapping("/interna-adm")
+    public String acessoPageInternaAdm() {
+        ModelAndView mv =  new ModelAndView();
+        String acesso= "";
+        if (acessoInternoAdm) {
+            acesso = "interna/interna-adm";
+        } else{
+            acesso = "login/login-adm";
+            String mensagem = "Acesso não Permitido - faça Login";
+            System.out.println(mensagem);
+            mv.addObject("msg", mensagem);
+            mv.addObject("classe", "vermelho");
+        }
+        
+        return acesso;
+    }
     
 }
