@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import webapp.crud_escola.Model.Prof;
 import webapp.crud_escola.Repository.ProfessorRepository;
-import webapp.crud_escola.Repository.VerificaCadastroAdmRepository;
 import webapp.crud_escola.Repository.VerificaCadastroProfRepository;
 
 @Controller

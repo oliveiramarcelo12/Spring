@@ -8,6 +8,7 @@ import webapp.crud_escola.Repository.AdministradorRepository;
 import webapp.crud_escola.Repository.VerificaCadastroAdmRepository;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -35,6 +36,29 @@ public class AdministradorController  {
             mv.addObject("msg", mensagem);
         }
       
+        return mv;
+    }
+      @PostMapping("acesso-adm")
+    public ModelAndView acessoAdmLogin(@RequestParam String cpf,
+                                       @RequestParam String senha) {
+        ModelAndView mv =  new ModelAndView("adm/login-adm");//página interna de acesso
+  
+        boolean acessoCPF = cpf.equals(ar.findByCpf(cpf).getCpf());
+        boolean acessoSenha = cpf.equals(ar.findByCpf(cpf).getSenha());
+        if (acessoSenha && acessoCPF) {
+            String mensagem = "Login Realizado com sucesso";
+            System.out.println(mensagem);
+            mv.addObject("msg", mensagem);
+           
+
+            
+        }else{
+            String mensagem = "Login não efetuado";
+            System.out.println(mensagem);
+            mv.addObject("msg", mensagem);
+
+        }
+        
         return mv;
     }
     
