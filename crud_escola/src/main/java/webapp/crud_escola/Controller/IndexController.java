@@ -55,5 +55,6 @@ public class IndexController {
         ModelAndView mv = new ModelAndView("aluno/cad-aluno");
         return mv;
     }
+   
 }
 

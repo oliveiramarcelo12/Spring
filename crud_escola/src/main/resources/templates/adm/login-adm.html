@@ -11,10 +11,10 @@
 <body>
     <div th:insert="~{fragments/header :: header}"><!-- barra de menu -->...</div>
     <div class="container">
-      
+   
         <div class="login-container">
-            <span th:text="${msg}"></span>
-            <form action="acesso-adm" method="post">
+        
+            <form action="/acesso-adm" method="post">
                 <h2>Login do Administrador</h2>
                 <div class="form-group">
                     <label for="username">Cpf do Usuário:</label>
@@ -30,7 +30,9 @@
                 <button type="button" class="btn-cadastrar" onclick="window.location.href='cad-adm';">
                     <i class="fas fa-user-plus"></i> Cadastrar
                 </button>
+                <span th:text="${msg}"></span>
             </form>
+            
         </div>
         
         
