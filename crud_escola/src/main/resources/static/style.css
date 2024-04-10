@@ -125,3 +125,10 @@ button:hover,
     flex: 1;
     margin-right: 10px;
 }
+
+.verde{
+    color: green;
+}
+.vermelho{
+    color: red;
+}
