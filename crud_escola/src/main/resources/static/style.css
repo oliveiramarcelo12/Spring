@@ -126,9 +126,19 @@ button:hover,
     margin-right: 10px;
 }
 
-.verde{
-    color: green;
-}
-.vermelho{
-    color: red;
+
+@GetMapping("/interna-adm")
+public ModelAndView acessoPageInternaAdm(RedirectAttributes attributes) {
+    ModelAndView mv = new ModelAndView("adm/interna-adm");
+    if (acessoInternoAdm) {
+        System.out.println("Acesso Permitido");
+    } else {
+        String mensagem = "Acesso não Permitido - faça Login";
+        System.out.println(mensagem);
+        mv.setViewName("redirect:/login-adm");
+        attributes.addFlashAttribute("msg", mensagem);
+        attributes.addFlashAttribute("classe", "vermelho");
+    }
+
+    return mv;
 }

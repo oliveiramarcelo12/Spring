@@ -55,6 +55,10 @@ public class IndexController {
         ModelAndView mv = new ModelAndView("aluno/cad-aluno");
         return mv;
     }
-   
+    @GetMapping("/cad-docente") // endereço da pagina no site
+    public ModelAndView abrirCadDocente() {
+        ModelAndView mv = new ModelAndView("adm/cad-docente");
+        return mv;
+    }
 }
 

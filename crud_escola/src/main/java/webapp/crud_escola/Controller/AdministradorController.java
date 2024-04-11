@@ -70,7 +70,7 @@ public class AdministradorController {
                 attributes.addFlashAttribute("classe", "vermelho");
                 mv.setViewName("redirect:/login-adm");
             }
-            
+
         } catch (Exception e) {
             String mensagem = "Login Não Efetuado";
             System.out.println(mensagem);
@@ -94,6 +94,15 @@ public class AdministradorController {
             attributes.addFlashAttribute("classe", "vermelho");
         }
 
+        return mv;
+    }
+
+    @PostMapping("logout-adm")
+    public ModelAndView logoutAdm(RedirectAttributes attributes) {
+        ModelAndView mv = new ModelAndView("redirect:/interna-adm");
+        attributes.addFlashAttribute("msg", "Logout Efetuado");
+        attributes.addFlashAttribute("classe", "verde");
+        acessoInternoAdm = false;
         return mv;
     }
 

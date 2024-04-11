@@ -10,6 +10,7 @@ import webapp.crud_escola.Repository.VerificaCadastroProfRepository;
 
 @Controller
 public class ProfController {
+    
     @Autowired
     private ProfessorRepository ar;
     @Autowired
