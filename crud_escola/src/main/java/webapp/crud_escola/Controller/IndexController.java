@@ -2,8 +2,6 @@ package webapp.crud_escola.Controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -41,7 +39,7 @@ public class IndexController {
 
     @GetMapping("/cad-prof") // endereço da pagina no site
     public ModelAndView abrirCadProf() {
-        ModelAndView mv = new ModelAndView("prof/cad-prof");
+        ModelAndView mv = new ModelAndView("adm/cad-prof");
         return mv;
     }
     @GetMapping("/login-aluno")
@@ -52,12 +50,13 @@ public class IndexController {
 
     @GetMapping("/cad-aluno") // endereço da pagina no site
     public ModelAndView abrirCadAluno() {
-        ModelAndView mv = new ModelAndView("aluno/cad-aluno");
+        ModelAndView mv = new ModelAndView("adm/cad-aluno");
         return mv;
     }
-    @GetMapping("/cad-docente") // endereço da pagina no site
-    public ModelAndView abrirCadDocente() {
-        ModelAndView mv = new ModelAndView("adm/cad-docente");
+
+    @GetMapping("/controle-disciplinas") // endereço da pagina no site
+    public ModelAndView abrirControleDisciplinas() {
+        ModelAndView mv = new ModelAndView("adm/controle-disciplinas");
         return mv;
     }
 }

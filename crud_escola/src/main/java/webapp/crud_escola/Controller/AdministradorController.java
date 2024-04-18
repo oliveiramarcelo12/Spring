@@ -105,6 +105,7 @@ public class AdministradorController {
         acessoInternoAdm = false;
         return mv;
     }
+    
 
     // @GetMapping("/interna-adm")
     // public String acessoPageInternaAdm() {

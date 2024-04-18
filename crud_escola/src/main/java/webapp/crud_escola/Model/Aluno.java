@@ -12,7 +12,13 @@ public class Aluno implements Serializable {
     private String nome;
     private String email;
     private String senha;
+    private String matricula; // Novo campo
 
+    // Construtor vazio
+    public Aluno() {
+    }
+
+    // Getters e Setters
     public String getCpf() {
         return cpf;
     }
@@ -43,5 +49,13 @@ public class Aluno implements Serializable {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
     }
 }
