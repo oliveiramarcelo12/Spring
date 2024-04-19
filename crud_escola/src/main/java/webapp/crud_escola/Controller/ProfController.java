@@ -9,14 +9,14 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import webapp.crud_escola.Model.Prof;
-import webapp.crud_escola.Repository.ProfessorRepository;
+import webapp.crud_escola.Repository.ProfRepository;
 import webapp.crud_escola.Repository.VerificaCadastroProfRepository;
 
 @Controller
 public class ProfController {
     boolean acessoInternoProf = false;
     @Autowired
-    private ProfessorRepository ar;
+    private ProfRepository ar;
     @Autowired
     private VerificaCadastroProfRepository vcar;
 

@@ -1,20 +1,36 @@
 package webapp.crud_escola.Model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+
 @Entity
 public class Disciplina implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
     private String nome;
-    private String codigo;
+    
+    @ManyToMany(mappedBy = "disciplinas")
+    private List<Prof> professores;
 
-    public Disciplina() {
-        // Construtor vazio necessário para frameworks como Spring
+    @ManyToMany(mappedBy = "disciplinas")
+    private List<Aluno> alunos;
+
+    // Getters e Setters
+
+    public Long getId() {
+        return id;
     }
 
-    public Disciplina(String nome, String codigo) {
-        this.nome = nome;
-        this.codigo = codigo;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -25,11 +41,19 @@ public class Disciplina implements Serializable {
         this.nome = nome;
     }
 
-    public String getCodigo() {
-        return codigo;
+    public List<Prof> getProfessores() {
+        return professores;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    public void setProfessores(List<Prof> professores) {
+        this.professores = professores;
+    }
+
+    public List<Aluno> getAlunos() {
+        return alunos;
+    }
+
+    public void setAlunos(List<Aluno> alunos) {
+        this.alunos = alunos;
     }
 }
