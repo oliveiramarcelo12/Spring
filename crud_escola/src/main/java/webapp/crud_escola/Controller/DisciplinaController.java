@@ -3,17 +3,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-
+import java.util.ArrayList;
 import java.util.List;
 
 import webapp.crud_escola.Model.Disciplina;
 import webapp.crud_escola.Model.Prof;
 import webapp.crud_escola.Repository.DisciplinaRepository;
 import webapp.crud_escola.Repository.ProfRepository;
-
 
 
 @Controller
@@ -25,26 +24,37 @@ public class DisciplinaController {
     @Autowired
     private ProfRepository professorRepository;
 
-    @GetMapping("/disciplinas")
-    public ModelAndView listarDisciplinas() {
-        ModelAndView modelAndView = new ModelAndView("listar-disciplinas");
-        Iterable<Disciplina> disciplinas = disciplinaRepository.findAll();
-        modelAndView.addObject("disciplinas", disciplinas);
-        return modelAndView;
-    }
+    @GetMapping("/associar-disciplina-professor")
+public ModelAndView exibirFormularioCadastro() {
+    ModelAndView mv = new ModelAndView("disciplina");
+    Iterable<Prof> professoresIterable = professorRepository.findAll();
+    List<Prof> professores = new ArrayList<>();
+    professoresIterable.forEach(professores::add);
+    mv.addObject("professores", professores);
+    return mv;
+}
 
-    @GetMapping("/disciplinas/cadastrar")
-    public ModelAndView exibirFormularioCadastro() {
-        ModelAndView modelAndView = new ModelAndView("cadastro-disciplina");
-        List<Prof> professores = (List<Prof>) professorRepository.findAll();
-        modelAndView.addObject("professores", professores);
-        modelAndView.addObject("disciplina", new Disciplina());
-        return modelAndView;
-    }
-
-    @PostMapping("/disciplinas/cadastrar")
-    public String cadastrarDisciplina(Disciplina disciplina) {
+@PostMapping("/cadastrar-disciplina")
+public ModelAndView cadastrarDisciplina(@RequestParam String nome, @RequestParam String professorCpf) {
+    ModelAndView mv = new ModelAndView("redirect:/cadastrar-disciplina");
+    Prof professor = professorRepository.findByCpf(professorCpf);
+    if (professor != null) {
+        Disciplina disciplina = new Disciplina();
+        disciplina.setNome(nome);
+        
+        // Verifica se a lista de professores está inicializada
+        if (disciplina.getProfessores() == null) {
+            disciplina.setProfessores(new ArrayList<>());
+        }
+        
+        disciplina.getProfessores().add(professor);
         disciplinaRepository.save(disciplina);
-        return "redirect:/disciplinas";
+        mv.addObject("msg", "Disciplina cadastrada com sucesso!");
+    } else {
+        mv.addObject("msg", "Professor não encontrado. Cadastre o professor antes de associá-lo à disciplina.");
     }
+    return mv;
+}
+
+
 }

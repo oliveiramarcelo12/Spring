@@ -53,17 +53,12 @@ public class IndexController {
         ModelAndView mv = new ModelAndView("adm/cad-aluno");
         return mv;
     }
-
     @GetMapping("/controle-disciplinas-prof") // endereço da pagina no site
-    public ModelAndView abrirControleDisciplinasProfessor() {
+    public ModelAndView abrirCadDisciplinaIndex() {
         ModelAndView mv = new ModelAndView("adm/controle-disciplinas-prof");
         return mv;
     }
 
-    @GetMapping("/controle-disciplinas-aluno") // endereço da pagina no site
-    public ModelAndView abrirControleDisciplinasAluno() {
-        ModelAndView mv = new ModelAndView("adm/controle-disciplinas-aluno");
-        return mv;
-    }
+   
 }
 

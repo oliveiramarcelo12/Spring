@@ -11,6 +11,7 @@ public class Prof  implements Serializable {
     private String nome;
     private String email;
     private String senha;
+    private String disciplina;
 
     public String getCpf() {
         return cpf;
@@ -42,6 +43,15 @@ public class Prof  implements Serializable {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public String getDisciplina() {
+        return disciplina;
+    }
+
+    public void setDisciplina(String disciplina) {
+        this.disciplina = disciplina;
     } 
+    
 
 }

@@ -1,29 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <!-- Cabeçalho omitido para manter o foco no conteúdo -->
+    <!-- Meta tags, título, links para CSS -->
 </head>
 <body>
     <div class="container">
-        <h1>Associação de Disciplina ao Professor</h1>
-        
-        <form action="/cad-prof" method="post">
+        <h1>Cadastro de Disciplina Professor</h1>
+        <form action="/cadastrar-disciplina" method="post">
             <div class="mb-3">
-                <label for="professor">Selecione o Professor:</label>
-                <select class="form-select" id="professor" name="cpfProfessor">
-                    <option value="">Selecione...</option>
+                <label for="nome" class="form-label">Nome da Disciplina:</label>
+                <input type="text" class="form-control" id="nome" name="nome" required>
+            </div>
+            <div class="mb-3">
+                <label for="professor" class="form-label">Professor:</label>
+                <select class="form-select" id="professor" name="professor" required>
+                    <option value="">Selecione um professor</option>
+                    <!-- Loop para exibir a lista de professores cadastrados -->
                     <option th:each="professor : ${professores}" th:value="${professor.cpf}" th:text="${professor.nome}"></option>
                 </select>
-                
-                <label for="disciplina">Selecione a Disciplina:</label>
-                <select class="form-select" id="disciplina" name="idDisciplina">
-                    <option value="">Selecione...</option>
-                    <option th:each="disciplina : ${disciplinas}" th:value="${disciplina.id}" th:text="${disciplina.nome}"></option>
-                </select>
-                
             </div>
-            
-            <button type="submit" class="btn btn-primary">Associar Disciplina ao Professor</button>
+            <button type="submit" class="btn btn-primary">Cadastrar Disciplina</button>
         </form>
     </div>
 </body>
