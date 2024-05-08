@@ -1,0 +1,23 @@
+Funções Administrativas:
+
+Cadastro de Aluno
+Disciplinas do Aluno (máximo de 2)
+Cadastro de Professor
+Disciplina do Professor (máximo de 1)
+Verificar todos os alunos na Disciplina
+Verificar Disciplina Cadastrada
+Funções do Sistema:
+
+Aplicação:
+
+crud_escola
+Application.java
+Testes:
+
+ApplicationTests.java
+ACESSO PROFESSOR:
+
+Verificar Professor da Disciplina
+ACESSO ALUNO:
+
+Verificar Notas Lançadas (Opcional)
