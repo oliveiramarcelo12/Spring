@@ -1,0 +1,21 @@
+MVC
+ -Model
+   -AtivoPatrimonial
+       -id
+       -nome
+       -ambiente
+    -Ambiente 
+       -id
+       -nome
+       -responsavel
+    -Responsalvel
+        -id
+        -nome
+    -Repository
+        -AtivoPatrimonialRepository (CRUD)
+        -AmbienteRepository (CRUD)
+        -Responsalvel (CRUD)
+    -Controller 
+        -AtivoPatrimonialController
+        -AmbienteController
+        -ResponsalvelController       
